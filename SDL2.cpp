@@ -182,7 +182,7 @@ void cleanup<SDL_Surface*>(SDL_Surface *surf){
       SDL_RenderClear(sdl_object->ren);
       SDL_RenderCopy(sdl_object->ren, sdl_object->texture, NULL, NULL);
       SDL_RenderPresent(sdl_object->ren); 
-      printf("OK");      
+      
        
  }
 
