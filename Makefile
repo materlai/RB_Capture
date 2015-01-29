@@ -16,9 +16,9 @@ CHK_SOURCES :=SDL2.cpp v4l2src.cpp colorspace.cpp
 
 building_echo     := @echo 'building target:'
 building_finished := @echo 'finished building target:'
+Target_Object     :=RB_Capture
 
-
-RB_Capture: $(OBJECTS_DEPS) main.o 
+$(Target_Object): $(OBJECTS_DEPS) main.o 
 	$(building_echo) $@
 	$(CC) main.o $(OBJECTS_DEPS)    $(LIBS_PATH)  $(LIBS) -o $@
 	$(building_finished) $@
@@ -44,5 +44,5 @@ main.o:main.cpp
 check-syntax:
 	gcc -o nul -S ${CHK_SOURCES}
 clean:
-	rm -rf  main.o $(OBJECTS_DEPS)
+	rm -rf $(Target_Object)  main.o $(OBJECTS_DEPS)
 
